@@ -1,0 +1,799 @@
+/* 0. Variables & Base Setup */
+:root {
+    /* Light theme colors */
+    --primary-color: #5d5dff;
+    --secondary-color: #63d471;
+    --background-color: #ffffff;
+    --text-color: #2c2c2c;
+    --card-background: #f7f7f7;
+    --border-color: #e5e5e5;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-bg-light: #f0f0f0;
+}
+
+/* Dark theme colors */
+body.dark-mode {
+    --background-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --card-background: #2c2c47;
+    --border-color: #3f3f5a;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.5);
+    --hover-bg-light: #3f3f5a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Fix for anchor links jumping under the fixed navbar */
+    scroll-padding-top: 5rem; 
+}
+
+body {
+    /* Using Poppins font for a more modern look */
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+    line-height: 1.6;
+}
+
+/* 1. Navbar */
+.navbar-container {
+    background-color: var(--background-color);
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center; /* Will be space-between on mobile */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative; /* For mobile menu positioning */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700; /* Bolder font */
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: auto; /* Pushes links to the right */
+    transition: color 0.3s;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    transition: color 0.3s;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5rem;
+    font-weight: 600;
+    transition: color 0.3s, border-color 0.3s;
+    border-bottom: 2px solid transparent; /* Smoother hover effect */
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* 2. Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    padding: 0.5rem;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-bg-light);
+}
+
+/* 3. Responsive Navbar Toggle (Burger) */
+.nav-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    color: var(--text-color);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* 4. General Section Styling */
+.section {
+    padding-top: 6rem; /* Increased top padding */
+    padding-bottom: 5rem;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+body.dark-mode .subtitle {
+    color: #ccc;
+}
+
+/* 5. Home Section */
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px; 
+    min-height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('pics/Background-Portfolio.jpg'); 
+    
+    background-size:cover ;
+    background-attachment: fixed; 
+}
+
+
+.home-section .hero-content h1, 
+.home-section .hero-content p {
+    color: white !important;
+    z-index: 2;
+}
+
+.home-section .hero-content h1 {
+    background: linear-gradient(to right, #61dafb, #e34c9c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.5rem; /* Slightly larger */
+    font-weight: 800;
+}
+
+/* Added styles for profile image */
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--primary-color);
+    box-shadow: 0 0 0 8px rgba(93, 93, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.title-role {
+    font-size: 1.2rem;
+    color: #eee !important;
+    font-weight: 600;
+}
+
+.actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(93, 93, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 212, 113, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 6. About Me Section */
+.about-content {
+    display: flex;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-card {
+    flex: 1;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    word-break: break-word; /* Prevents text overflow */
+}
+
+.highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.highlighted-card {
+    background: linear-gradient(145deg, rgba(93, 93, 255, 0.05), rgba(99, 212, 113, 0.05)); 
+    border-color: var(--primary-color); 
+}
+
+.highlighted-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.highlighted-card h4 {
+    margin-top: 1rem;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.highlighted-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.highlighted-card ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.highlighted-card ul li:before {
+    content: '•'; 
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 7. Education & Experience (Timeline) */
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-item {
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.timeline-content .institute,
+.timeline-content .location {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    line-height: 1.7;
+    word-break: break-word; /* Prevents text overflow */
+}
+
+body.dark-mode .timeline-content .institute,
+body.dark-mode .timeline-content .location {
+    color: #aaa;
+}
+
+/* 8. Skills Section */
+.skills-grid {
+    display: grid;
+    /* More responsive grid: fits as many 150px items as it can */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 1.5rem;
+    max-width: 1200px; /* Wider grid */
+    margin: 0 auto;
+}
+
+.skill-item {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background 0.3s;
+    cursor: pointer;
+}
+
+.skill-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+    object-fit: contain; /* Ensures icons like Next.js look good */
+}
+
+.skill-item p {
+    font-weight: 600; /* Bolder font */
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(93, 93, 255, 0.05), rgba(93, 93, 255, 0.1));
+}
+
+/* 9. Portfolio (Projects) Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    position: relative; 
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+    display: block;
+    filter: grayscale(50%); 
+    transition: all 0.4s ease, transform 0.4s ease; 
+    overflow: scroll;
+}
+
+.project-card:hover .project-thumbnail {
+    filter: grayscale(0%);
+        transform:rotate(1deg);
+        overflow: scroll;
+        
+
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+    word-break: break-word; /* Prevents text overflow */
+}
+
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    min-height: 40px;
+}
+
+.tech-tag {
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Tech tag colors */
+.tech-tag.tech-react { background-color: #61DAFB; color: #20232A; }
+.tech-tag.tech-query { background-color: #FF4154; }
+.tech-tag.tech-tailwind { background-color: #06B6D4; }
+.tech-tag.tech-axios { background-color: #5A29E4; }
+.tech-tag.tech-html { background-color: #f7f6f6; }
+.tech-tag.tech-css { background-color: #1572B6; }
+.tech-tag.tech-js { background-color: #F7DF1E; color: #323330; }
+.tech-tag.tech-bootstrap { background-color: #7952B3; }
+.tech-tag.tech-aos { background-color: #38C7A0; }
+
+
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-btn {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.project-btn.live-demo {
+    background-color: var(--primary-color); 
+    color: white;
+}
+.project-btn.live-demo:hover {
+    background-color: #4a4af0;
+    transform: translateY(-2px);
+}
+.project-btn.code-link {
+    background-color: var(--primary-color); 
+    color: white;
+}
+.project-btn.code-link:hover {
+    transform: translateY(-2px);
+
+}
+body.dark-mode .project-description {
+    color: #ccc;
+}
+
+/* 10. Certificates Section */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.certificate-item {
+    padding: 2rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    text-align: center;
+}
+
+.certificate-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.certificate-item h4 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.certificate-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.certificate-image {
+    width: 100%; 
+    height: auto; 
+    margin-top: 1.5rem; 
+    border-radius: 8px; 
+    border: 1px solid var(--border-color); 
+    object-fit: cover; 
+}
+
+
+/* 11. Contact Section */
+.contact-content {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-form-container, .contact-info-card {
+    flex: 1;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.contact-info-card {
+    background: linear-gradient(145deg, rgba(93, 93, 255, 0.05), rgba(99, 212, 113, 0.05)); 
+    border-color: var(--primary-color);
+}
+
+.contact-form-container h3, .contact-info-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif; /* Ensure font consistency */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.send-message-btn {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.send-message-btn:hover {
+    background-color: #4a4af0;
+    transform: none;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.info-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+}
+
+.info-value {
+    color: var(--text-color);
+    word-break: break-all;
+}
+
+.info-value-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    word-break: break-all;
+}
+
+.info-value-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+body.dark-mode .info-value-link {
+    color: var(--text-color);
+}
+
+body.dark-mode .info-value-link:hover {
+    color: var(--primary-color);
+}
+
+/* 12. Footer */
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--card-background);
+    border-top: 1px solid var(--border-color);
+    /* Make footer shorter as it's not a main section */
+    min-height: auto; 
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.footer p {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+body.dark-mode .footer {
+    background-color: #1a1a2e;
+    border-top-color: #3f3f5a;
+}
+
+body.dark-mode .footer p {
+    color: #aaa;
+}
+
+
+/* 13. Responsive Media Queries */
+
+/* Navbar & Contact Form responsiveness */
+@media (max-width: 900px) {
+    .navbar {
+        justify-content: space-between; /* Logo on left, burger on right */
+    }
+
+    .nav-toggle {
+        display: block; /* Show burger menu */
+    }
+
+    .theme-toggle {
+        /* Move theme toggle to not overlap burger */
+        right: 5rem;
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default */
+        position: absolute;
+        top: 100%; /* Position below navbar */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--card-background);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .contact-content {
+        flex-direction: column;
+    }
+}
+
+/* Card and Grid responsiveness */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        /* Better fit for small mobiles */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .home-section h1 {
+        font-size: 2.5rem; /* Smaller title on mobile */
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}
