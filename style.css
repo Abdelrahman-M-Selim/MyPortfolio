@@ -231,10 +231,25 @@ body.dark-mode .subtitle {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .btn-primary {
-    background-color: var(--primary-color);
+    background-color: #007bff; 
     color: white;
-    box-shadow: 0 4px 15px rgba(93, 93, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
 .btn-secondary {
@@ -380,8 +395,8 @@ body.dark-mode .timeline-content .location {
 }
 
 .skill-item img {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     margin-bottom: 0.5rem;
     object-fit: contain; /* Ensures icons like Next.js look good */
 }
@@ -796,4 +811,68 @@ body.dark-mode .footer p {
         width: 150px;
         height: 150px;
     }
+}
+
+.category-title {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--primary-color, #007bff);
+}
+.skills-category {
+    margin-bottom: 30px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+.tag {
+    background-color: rgba(0, 123, 255, 0.1); 
+    color: #007bff; 
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.project-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.code-link {
+    background-color: #007bff;
+    color: white;
+}
+.code-link:hover {
+    background-color: #0056b3;
+}
+.repo-link {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+}
+.repo-link:hover {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .repo-link {
+    color: #fff;
+    border-color: #fff;
+}
+body.dark-mode .repo-link:hover {
+    background-color: #fff;
+    color: #000;
 }
