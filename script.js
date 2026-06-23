@@ -36,8 +36,7 @@ navToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-// Close mobile menu when a link is clicked
-navLinks.querySelectorAll("a").forEach((link) => {
+  navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     if (navLinks.classList.contains("active")) {
       navLinks.classList.remove("active");
@@ -45,11 +44,9 @@ navLinks.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// 3. Active Link on Scroll (Intersection Observer)
 const sections = document.querySelectorAll("section[id]");
 const navLinksAnchors = document.querySelectorAll(".nav-links a");
 
-// Function to update active link
 const setActiveLink = (id) => {
   navLinksAnchors.forEach((link) => {
     link.classList.remove("active");
@@ -62,7 +59,7 @@ const setActiveLink = (id) => {
 const observerOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.5, // 50% of the section must be visible
+  threshold: 0.5, 
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
@@ -73,18 +70,14 @@ const observer = new IntersectionObserver((entries, observer) => {
   });
 }, observerOptions);
 
-// Observe each section
 sections.forEach((section) => {
   observer.observe(section);
 });
 
-// 4. Set initial active link on page load
 document.addEventListener("DOMContentLoaded", () => {
   if (sections.length > 0) {
-    // A slight delay to ensure correct scroll position is read
     setTimeout(() => {
       let activeSection = sections[0].id;
-      // Find the currently visible section on load
       for (const section of sections) {
         if (section.getBoundingClientRect().top <= 100) {
           activeSection = section.id;
@@ -95,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// 5. Contact Form Submission (using Formspree)
 const contactForm = document.getElementById("contact-form");
 
 contactForm.addEventListener("submit", function (e) {
@@ -130,4 +122,167 @@ contactForm.addEventListener("submit", function (e) {
       statusButton.textContent = originalButtonText;
       statusButton.disabled = false;
     });
+});
+
+// --- 3. GSAP & ScrollTrigger Animations ---
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero Section Animations (On Load)
+gsap.from(".hero-content .profile-img", {
+  duration: 1,
+  y: 50,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 0.2
+});
+
+gsap.from(".hero-content h1", {
+  duration: 1,
+  y: 30,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 0.4
+});
+
+gsap.from(".hero-content .title-role", {
+  duration: 1,
+  y: 30,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 0.6
+});
+
+gsap.from(".hero-content .actions .btn", {
+  duration: 1,
+  y: 30,
+  opacity: 0,
+  ease: "power3.out",
+  stagger: 0.2,
+  delay: 0.8
+});
+
+// Generic Section Title Animation
+gsap.utils.toArray('.section-title').forEach(title => {
+  gsap.from(title, {
+    scrollTrigger: {
+      trigger: title,
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+    },
+    duration: 0.8,
+    y: 30,
+    opacity: 0,
+    ease: "power2.out"
+  });
+});
+
+// About Section Cards
+gsap.from(".about-card.left-card", {
+  scrollTrigger: {
+    trigger: ".about-content",
+    start: "top 75%",
+    toggleActions: "play none none reverse"
+  },
+  duration: 1,
+  x: -50,
+  opacity: 0,
+  ease: "power2.out"
+});
+
+gsap.from(".about-card.right-card", {
+  scrollTrigger: {
+    trigger: ".about-content",
+    start: "top 75%",
+    toggleActions: "play none none reverse"
+  },
+  duration: 1,
+  x: 50,
+  opacity: 0,
+  ease: "power2.out"
+});
+
+// Skills Category Stagger
+gsap.utils.toArray('.skills-category').forEach(category => {
+  gsap.from(category.querySelectorAll('.skill-item'), {
+    scrollTrigger: {
+      trigger: category,
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    },
+    duration: 0.6,
+    y: 30,
+    opacity: 0,
+    stagger: 0.1,
+    ease: "power2.out"
+  });
+});
+
+// Timeline Items (Education & Experience)
+gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 85%",
+      toggleActions: "play none none reverse"
+    },
+    duration: 0.8,
+    x: i % 2 === 0 ? -50 : 50, // Alternate left/right based on index
+    opacity: 0,
+    ease: "power2.out"
+  });
+});
+
+// Project Cards Stagger
+gsap.from(".project-card", {
+  scrollTrigger: {
+    trigger: ".projects-grid",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  },
+  duration: 0.8,
+  y: 50,
+  opacity: 0,
+  stagger: 0.15,
+  ease: "power2.out"
+});
+
+// Certificate Items
+gsap.from(".certificate-item", {
+  scrollTrigger: {
+    trigger: ".certificates-grid",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  },
+  duration: 0.8,
+  y: 30,
+  opacity: 0,
+  stagger: 0.2,
+  ease: "power2.out"
+});
+
+// Contact Section
+gsap.from(".contact-form-container", {
+  scrollTrigger: {
+    trigger: ".contact-content",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  },
+  duration: 1,
+  x: -50,
+  opacity: 0,
+  ease: "power2.out"
+});
+
+gsap.from(".contact-info-card", {
+  scrollTrigger: {
+    trigger: ".contact-content",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  },
+  duration: 1,
+  x: 50,
+  opacity: 0,
+  ease: "power2.out"
 });
