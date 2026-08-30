@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman Selim - Frontend Engineer</title>
+    <link rel="icon" type="image/png" href="./pics/my-photo.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- GSAP & ScrollTrigger CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+
+    <header class="navbar-container">
+        <nav class="navbar">
+            <a href="#home" class="logo">Abdelrahman</a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section home-section">
+            <div class="container hero-content">
+                <img src="pics/me.webp" alt="Abdelrahman Selim Profile" class="profile-img" loading="lazy">
+                <h1>I'm Abdelrahman Selim</h1>
+                <p class="title-role">Full Stack Developer specializing in Frontend Architecture</p>
+                <div class="actions">
+                    <a href="/pics/Abdelrahman_Selim.pdf" download="/Abdelrahman_Selim_Resume.pdf" class="btn btn-primary">Download CV</a>
+                    <a href="#contact" class="btn btn-secondary">Contact me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-card left-card">
+                        <p>I’m a <span class="highlight">Frontend-Dev</span>. I specialize in crafting interactive UIs using <span class="highlight">React.js</span> and <span class="highlight">Next.js</span>, while having a solid understanding of Node.js and Express to seamlessly integrate and define the issues with backend architectures.</p>
+                    </div>
+                    <div class="about-card right-card highlighted-card">
+                        <h3>Technical Focus</h3>
+                        <p>Bridging the gap between scalable APIs and engaging user experiences. I ensure applications are highly functional, <span class="highlight">accessible</span>, and optimized for performance.</p>
+                        <p>Committed to writing maintainable, component-based code, delivering fast and SEO-friendly modern web applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="subtitle">Organized by specialization</p>
+                
+                <div class="skills-category">
+                    <h3 class="category-title">Frontend & UI</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5 Icon" loading="lazy"><p>HTML5</p></div>
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 Icon" loading="lazy"><p>CSS3</p></div>
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript Icon" loading="lazy"><p>JavaScript (ES6+)</p></div>
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React.js Icon" loading="lazy"><p>React.js</p></div>
+                        <div class="skill-item"><img src="https://assets.vercel.com/image/upload/v1607554385/repositories/next-js/next-logo.png" alt="Next.js Icon" loading="lazy"><p>Next.js</p></div>
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS Icon" loading="lazy"><p>Tailwind CSS</p></div>
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript Icon" loading="lazy"><p>TypeScript</p></div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">State Management & Caching</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item"><img src="pics/redux.webp" alt="Redux Toolkit Icon" loading="lazy"><p>Redux Toolkit</p></div>
+                        <div class="skill-item"><img src="pics/zustand.webp" alt="Zustand Icon" loading="lazy"><p>Zustand</p></div>
+                        <div class="skill-item"><img src="pics/react-query.webp" alt="React Query Icon" loading="lazy"><p>React Query</p></div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">Backend & Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Icon" loading="lazy"><p>Node.js</p></div>
+                        <div class="skill-item"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express.js Icon" loading="lazy"><p>Express.js</p></div>
+                        <div class="skill-item"><img src="pics/512px-Antu_mongodb.svg.webp" alt="MongoDB Icon" loading="lazy"><p>MongoDB</p></div>
+                        <div class="skill-item"><img src="pics/sql.png" alt="SQL Icon" loading="lazy"><p>SQL</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section education-section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>BSc Computer and Information Systems</h3>
+                            <p class="institute">Zagazig University</p>
+                            <span class="location">2023 - Expected 2027 | Zagazig, Egypt</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Web Development Using React JS (145 hrs)</h3>
+                            <p class="institute">Information Technology Institute (ITI)</p>
+                            <span class="location">Completed Aug. 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Freelance Frontend Developer</h3>
+                            <span class="location">2024 - Present</span>
+                            <p>Architected and developed complex frontend systems for freelance and collaborative projects, including HR portals and business incubator platforms. Focused on state management, performance optimization, and clean component architecture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Projects" class="section portfolio-section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <p class="subtitle">Real-world applications built with modern tools</p>
+
+                <div class="projects-grid" style="max-width: auto; margin: 0 auto;">
+                    
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/Nezuko-Manager.jpg" alt="Nezuko HR Portal Dashboard View" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Nezuko HR-manager</h3>
+                            <div class="tech-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">React Query</span>
+                                <span class="tag">Proxy</span>
+                            </div>
+                            <p class="project-description">Unified SaaS HRMS for the full employee lifecycle — from recruitment to payroll and asset management.</p>
+                            <div class="project-actions">
+                                <a href="https://nezuko-system.vercel.app/" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Nezuko-G/Nezuko" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/Zag-Eng-Family.webp" alt="Zag-Eng Family Dashboard View" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Zag-Eng Family</h3>
+                            <div class="tech-tags">
+                                <span class="tag">React.js</span>
+                                <span class="tag">React Query</span>
+                                <span class="tag">Zustand</span>
+                            </div>
+                            <p class="project-description">A centralized academic management system for universities to handle events, facilities, and institutional resources.</p>
+                            <div class="project-actions">
+                                <a href="https://zagengfamily.org/" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Abdelrahman-M-Selim/Zag-Eng-Family" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/HR.webp" alt="Nezuko HR Portal Dashboard View" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Nezuko HR-Portal</h3>
+                            <div class="tech-tags">
+                                <span class="tag">React.js</span>
+                                <span class="tag">React Query</span>
+                                <span class="tag">Zustand</span>
+                            </div>
+                            <p class="project-description">Job board portal consuming RESTful APIs. Optimized with request debouncing and robust server-state caching.</p>
+                            <div class="project-actions">
+                                <a href="https://nezuko-portal.vercel.app/" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Abdelrahman-M-Selim/Nezuko-Portal" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/landing-page-Rochetta.webp" alt="Rochetta Online Pharmacy Homepage" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Rochetta Pharmacy</h3>
+                            <div class="tech-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">RTK Query</span>
+                                <span class="tag">Tailwind</span>
+                            </div>
+                            <p class="project-description">E-commerce application featuring dynamic product catalog, automated caching via RTK Query, and rendering optimizations.</p>
+                            <div class="project-actions">
+                                <a href="https://rochetta-v5sh.vercel.app/dashboard" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Abdelrahman-M-Selim/Rochetta" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/incubator.webp" alt="Business Incubator Platform Interface" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Business Incubator Platform</h3>
+                            <div class="tech-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Electron.js</span>
+                                <span class="tag">CSS</span>
+                            </div>
+                            <p class="project-description">A unified web and desktop interface (Electron) for admins and entrepreneurs to centralize project tracking workflows.</p>
+                            <div class="project-actions">
+                                <a href="https://abd0selim2.alwaysdata.net/" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Abdelrahman-M-Selim/Business-Incubator-Platform-DBMS" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/ketabak.webp" alt="Ketabak Bookstore Interface" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Ketabak Bookstore</h3>
+                            <div class="tech-tags">
+                                <span class="tag">Vanilla JS</span>
+                                <span class="tag">DOM Manipulation</span>
+                            </div>
+                            <p class="project-description">Responsive frontend built entirely without frameworks. Features client-side search, filtering, and simulated auth.</p>
+                            <div class="project-actions">
+                                <a href="https://aelaraby6.github.io/Ketabak/" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Abdelrahman-M-Selim/Ketabak" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="pics/cv-creator-image.png" alt="CV Creator Interface" class="project-thumbnail" loading="lazy">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>CV Creator</h3>
+                            <div class="tech-tags">
+                                <span class="tag">React.js</span>
+                                <span class="tag">Data Binding</span>
+                            </div>
+                            <p class="project-description">Interactive tool generating ATS-friendly resumes with dynamic auto-population and seamless PDF exports.</p>
+                            <div class="project-actions">
+                                <a href="https://create-cv-nine.vercel.app/" target="_blank" class="project-btn code-link">Live Demo</a>
+                                <a href="https://github.com/Abdelrahman-M-Selim/CreateCV" target="_blank" class="project-btn repo-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section certificates-section">
+            <div class="container">
+                <h2 class="section-title">Certificates</h2>
+                <div class="certificates-grid">
+                    <div class="certificate-item">
+                        <h4>Web Dev Using React JS (145 hrs)</h4>
+                        <p>Information Technology Institute (ITI)</p>
+                        <a href="pics/Certificate.jpg" target="_blank" rel="noopener noreferrer" class="certificate-link">
+                            <img src="pics/Certificate.jpg" alt="ITI-Certificate" class="certificate-image" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="certificate-item">
+                        <h4>Algorithm Analysis</h4>
+                        <p>Udemy</p>
+                        <a href="pics/algorithm-certificate.webp" target="_blank" rel="noopener noreferrer" class="certificate-link">
+                            <img src="pics/algorithm-certificate.webp" alt="Udemy-Certificate" class="certificate-image" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="certificate-item">
+                        <h4>TIDA Gigs Freelance Training Program</h4>
+                        <p>Udemy</p>
+                        <a href="pics/tida-certificate.jpg" target="_blank" rel="noopener noreferrer" class="certificate-link">
+                            <img src="pics/tida-certificate.jpg" alt="TIDA-Certificate" class="certificate-image" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="subtitle">I'd love to hear from you!</p>
+
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <h3>Send a Message</h3>
+                        <form class="contact-form" id="contact-form" action="https://formspree.io/f/movpgdwv" method="POST">
+                            <input type="text" name="name" placeholder="Your name" required class="form-input">
+                            <input type="email" name="email" placeholder="you@example.com" required class="form-input">
+                            <textarea name="message" placeholder="Write your message here..." rows="5" required class="form-input"></textarea>
+                            <button type="submit" class="btn send-message-btn">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <h3>Contact Info</h3>
+                        <div class="info-item">
+                            <span class="info-icon">📧</span>
+                            <div class="info-details">
+                                <p class="info-label">Email</p>
+                                <p class="info-value">engabdo880@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div class="info-details">
+                                <p class="info-label">Phone / WhatsApp</p>
+                                <p class="info-value">+201027602924</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div class="info-details">
+                                <p class="info-label">Location</p>
+                                <p class="info-value">Zagazig, Egypt</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🔗</span>
+                            <div class="info-details">
+                                <p class="info-label">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/abdelrahman-selim-0401a9355" target="_blank" class="info-value-link">abdelrahman-selim-0401a9355</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">💻</span>
+                            <div class="info-details">
+                                <p class="info-label">GitHub</p>
+                                <a href="https://github.com/Abdelrahman-M-Selim" target="_blank" class="info-value-link">@Abdelrahman-M-Selim</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Abdelrahman Selim. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
